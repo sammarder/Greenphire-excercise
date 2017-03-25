@@ -1,3 +1,5 @@
+import random
+
 def get_next(numbers, prompt, max):
     next = raw_input(prompt.format(*numbers)) 
     if (valid_number(numbers, next, max)):
@@ -29,6 +31,13 @@ def get_name(prompt):
         if (len(name) > 0):
             return name
 
+def generate():
+    set = [str(x + 1) for x in range(69)]
+    winningNums = random.sample(set, 5)
+    powerballs = [x + 1 for x in range(26)]
+    powerBall = random.choice(powerballs)
+    return " ".join(winningNums) + " Powerball: " + str(powerBall) 
+
 if __name__ == "__main__":
     first = get_name("Enter your first name: ") 
     last = get_name("Enter your last name: ") 
@@ -52,3 +61,6 @@ if __name__ == "__main__":
     output.write(result)
     output.close()
     print(result.strip())
+
+    win = generate()
+    print("\n" + win)
