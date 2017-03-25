@@ -1,6 +1,7 @@
 import random
 
 def get_next(numbers, prompt, max):
+    numbers.sort()
     next = raw_input(prompt.format(*numbers)) 
     if (valid_number(numbers, next, max)):
         return next 
@@ -36,6 +37,7 @@ def generate():
     winningNums = random.sample(set, 5)
     powerballs = [x + 1 for x in range(26)]
     powerBall = random.choice(powerballs)
+    winningNums.sort()
     return " ".join(winningNums) + " Powerball: " + str(powerBall) 
 
 if __name__ == "__main__":
@@ -52,6 +54,7 @@ if __name__ == "__main__":
     
     result = first + " " + last + " {0}, {1}, {2}, {3}, {4} Powerball: ".format(*numbers) + str(powerball) + "\n"
 
+    print("")
     output = open("lotto.txt", "a")
     input = open("lotto.txt", "r")
     for line in input:
@@ -62,5 +65,6 @@ if __name__ == "__main__":
     output.close()
     print(result.strip())
 
-    win = generate()
-    print("\n" + win)
+    print("")
+    print("Winning numbers:")
+    print(generate())
