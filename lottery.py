@@ -52,6 +52,7 @@ if __name__ == "__main__":
     numbers.append(get_next(numbers, "select 5th # (1 thru 69 excluding {0}, {1}, {2} and {3}): ", 69))
     powerball = get_next([], "select Power Ball # (1 thru 26): ", 26) 
     
+    numbers.sort()
     result = first + " " + last + " {0}, {1}, {2}, {3}, {4} Powerball: ".format(*numbers) + str(powerball) + "\n"
 
     print("")
